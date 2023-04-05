@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .txtb {
+            padding: 10px;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        .btn {
+            width: 190px;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function love() {
+            text1 = document.getElementById('txt1').value;
+            text2 = document.getElementById('txt2').value;
+            if (text1 && text2) {
+                let total = Math.floor(Math.random() * 100);
+                str = (text1 + text2);
+                str = str.toLowerCase()
+                if (localStorage.getItem(str)) { 
+                    total = localStorage.getItem(str)
+                } else {
+                    localStorage.setItem(str, total)
+                }
+                document.getElementById('str').innerHTML ='calculate your per'+  ' '+ total +'%'
+                let yes=true
+                console.log(str)
+            } else {
+                alert("please enter valid name")
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <img style="height: 150px;" src="https://www.lovecalculator.club/img/love-meter.jpg" alt="missing image">
+    <h1 id="str" >calculate your per</h1>
+    <br>
+    <input type="text" id="txt1" class="txtb" placeholder="Enter you name">
+    <br><br>
+    <input type="text" id="txt2" class="txtb" placeholder="Enter you name">
+    <br><br>
+    <button class="btn" onclick="love()">Calculate </button>
+</body>
+
+</html>
